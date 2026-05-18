@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varisha Hijab – Jilbab Segi Empat Paris</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #c8826e;
+    --blush: #f0ddd7;
+    --cream: #faf7f4;
+    --sand: #e8ddd6;
+    --dark: #2a1f1b;
+    --mid: #6b4f43;
+    --light: #a08070;
+    --white: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    background: var(--dark);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    z-index: 3;
+  }
+
+  .brand-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp .8s .2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp .8s .4s forwards;
+  }
+
+  .hero-title em {
+    color: var(--rose);
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--sand);
+    max-width: 380px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp .8s .6s forwards;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp .8s .7s forwards;
+  }
+
+  .badge {
+    background: rgba(200,130,110,.15);
+    border: 1px solid rgba(200,130,110,.3);
+    color: var(--rose);
+    font-size: 12px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--rose);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+    opacity: 0;
+    animation: fadeUp .8s .9s forwards;
+  }
+
+  .cta-btn:hover { background: var(--mid); transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-mosaic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    gap: 3px;
+    padding-left: 60px;
+  }
+
+  .mosaic-img {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .mosaic-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s;
+  }
+
+  .mosaic-img:hover img { transform: scale(1.05); }
+
+  .mosaic-img.span2 { grid-column: span 2; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Section header ── */
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    color: var(--dark);
+  }
+
+  /* ── Colors section ── */
+  .colors-section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .color-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(42,31,27,.06);
+    transition: all .35s;
+    cursor: pointer;
+  }
+
+  .color-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(42,31,27,.12);
+  }
+
+  .color-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .color-info {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .color-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--sand);
+    flex-shrink: 0;
+  }
+
+  /* ── Pricing ── */
+  .pricing-section {
+    padding: 100px 40px;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-section::before {
+    content: '"Cantik itu';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 180px;
+    color: rgba(255,255,255,.03);
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pricing-section .section-title { color: var(--white); }
+  .pricing-section .section-tag { color: var(--rose); }
+
+  .pricing-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .price-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 36px 28px;
+    position: relative;
+    transition: all .3s;
+    text-align: center;
+  }
+
+  .price-card:hover {
+    background: rgba(200,130,110,.1);
+    border-color: rgba(200,130,110,.3);
+    transform: translateY(-4px);
+  }
+
+  .price-card.featured {
+    background: var(--rose);
+    border-color: var(--rose);
+  }
+
+  .price-card.featured .price-label,
+  .price-card.featured .price-amount,
+  .price-card.featured .price-note,
+  .price-card.featured .price-savings { color: var(--white); }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: var(--white);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 100px;
+  }
+
+  .price-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 8px;
+  }
+
+  .price-qty {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-qty span { font-size: 20px; vertical-align: super; }
+
+  .price-amount {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--rose);
+    margin-bottom: 6px;
+  }
+
+  .price-card.featured .price-amount { color: var(--white); font-size: 32px; }
+
+  .price-note {
+    font-size: 12px;
+    color: var(--light);
+    margin-bottom: 10px;
+  }
+
+  .price-savings {
+    font-size: 12px;
+    color: var(--rose);
+    font-weight: 500;
+  }
+
+  .price-card.featured .price-savings { color: rgba(255,255,255,.8); }
+
+  /* ── Order section ── */
+  .order-section {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .order-form {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 52px;
+    box-shadow: 0 4px 40px rgba(42,31,27,.08);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--sand);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--dark);
+    background: var(--cream);
+    outline: none;
+    transition: border .2s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--rose);
+    background: var(--white);
+  }
+
+  /* Color picker */
+  .color-picker {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .color-option {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .color-option input { display: none; }
+
+  .color-option .thumb {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2.5px solid transparent;
+    transition: all .2s;
+  }
+
+  .color-option input:checked + .thumb {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(200,130,110,.25);
+  }
+
+  .color-option .thumb img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .color-option .thumb-name {
+    font-size: 10px;
+    text-align: center;
+    padding: 4px;
+    color: var(--mid);
+    background: var(--cream);
+  }
+
+  /* Package picker */
+  .package-picker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .pkg-option { cursor: pointer; }
+  .pkg-option input { display: none; }
+
+  .pkg-box {
+    border: 1.5px solid var(--sand);
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: all .2s;
+    background: var(--cream);
+  }
+
+  .pkg-option input:checked + .pkg-box {
+    border-color: var(--rose);
+    background: rgba(200,130,110,.08);
+  }
+
+  .pkg-box .pkg-qty {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--dark);
+    line-height: 1;
+  }
+
+  .pkg-box .pkg-label { font-size: 11px; color: var(--mid); }
+  .pkg-box .pkg-price { font-size: 16px; font-weight: 600; color: var(--rose); margin-top: 4px; }
+  .pkg-box .pkg-save { font-size: 10px; color: var(--light); }
+
+  /* Ongkir */
+  .ongkir-box {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1.5px solid var(--sand);
+  }
+
+  .ongkir-title {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .ongkir-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .ongkir-result {
+    display: none;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 12px;
+    border: 1px solid var(--sand);
+  }
+
+  .ongkir-result.show { display: block; }
+
+  .ongkir-services { display: flex; flex-direction: column; gap: 8px; }
+
+  .ongkir-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s;
+    border: 1px solid transparent;
+  }
+
+  .ongkir-service:hover { background: var(--cream); }
+  .ongkir-service.selected { background: rgba(200,130,110,.1); border-color: var(--rose); }
+  .ongkir-service-name { font-size: 13px; font-weight: 500; }
+  .ongkir-service-etd { font-size: 11px; color: var(--light); }
+  .ongkir-service-price { font-size: 14px; font-weight: 600; color: var(--rose); }
+
+  .calc-btn {
+    background: var(--dark);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background .2s;
+    width: 100%;
+  }
+
+  .calc-btn:hover { background: var(--rose); }
+
+  /* Summary */
+  .order-summary {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 28px;
+    display: none;
+  }
+
+  .order-summary.show { display: block; }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--sand);
+    margin-bottom: 10px;
+  }
+
+  .summary-row.total {
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 600;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--rose);
+    color: var(--white);
+    border: none;
+    border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    cursor: pointer;
+    transition: all .3s;
+  }
+
+  .submit-btn:hover { background: var(--mid); transform: translateY(-2px); }
+  .submit-btn:disabled { background: var(--light); cursor: not-allowed; transform: none; }
+
+  /* Payment note */
+  .payment-note {
+    background: rgba(200,130,110,.08);
+    border: 1px solid rgba(200,130,110,.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--mid);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42,31,27,.7);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .modal-overlay.show { display: flex; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 48px 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    animation: fadeUp .4s forwards;
+  }
+
+  .modal-icon { font-size: 52px; margin-bottom: 16px; }
+
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .modal-body { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 24px; }
+
+  .modal-order-id {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--sand);
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--dark);
+  }
+
+  .payment-icon { font-size: 22px; }
+
+  .modal-close {
+    background: var(--dark);
+    color: var(--white);
+    border: none;
+    border-radius: 100px;
+    padding: 14px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  .modal-close:hover { background: var(--rose); }
+
+  /* Loading spinner */
+  .spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Error / info */
+  .info-msg {
+    font-size: 12px;
+    color: var(--light);
+    margin-top: 8px;
+    display: none;
+  }
+
+  .info-msg.show { display: block; }
+  .info-msg.error { color: #c0392b; }
+
+  /* Footer */
+  footer {
+    background: var(--dark);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  footer .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 28px; }
+    .hero-left::after { display: none; }
+    .hero-right { height: 60vw; }
+    .hero-mosaic { padding-left: 0; }
+    .color-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 360px; }
+    .order-form { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .color-picker { grid-template-columns: repeat(4, 1fr); }
+    .ongkir-inputs { grid-template-columns: 1fr; }
+    .colors-section, .order-section { padding: 60px 20px; }
+    .pricing-section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="brand-tag">Varisha Collection</div>
+    <h1 class="hero-title">Jilbab<br><em>Segi Empat</em><br>Paris Jadul</h1>
+    <p class="hero-desc">
+      Bahan premium anti letoy &amp; anti kusut. Ukuran 115 × 115 cm — sempurna untuk tampilan casual hingga formal. Tersedia dalam berbagai pilihan warna cantik.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">Anti Letoy</span>
+      <span class="badge">Anti Kusut</span>
+      <span class="badge">115 × 115 CM</span>
+      <span class="badge">Kirim via JNE</span>
+    </div>
+    <a href="#order" class="cta-btn">Pesan Sekarang</a>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-mosaic">
+      <div class="mosaic-img"><img src="id-11134207-7rasc-m569hn4h75qr98resize_w450_nl.jpg" alt="Olive"></div>
+      <div class="mosaic-img"><img src="id-11134207-7rasd-m27av99rtf1e2aresize_w450_nl.jpg" alt="Gray"></div>
+      <div class="mosaic-img"><img src="id-11134207-7rasd-m569hn4h8kb74dresize_w450_nl.jpg" alt="Maroon"></div>
+      <div class="mosaic-img"><img src="id-11134207-7rasi-m2rircyuqhde01resize_w450_nl.jpg" alt="Cream"></div>
+      <div class="mosaic-img"><img src="id-11134207-7rasj-m27ag05jkuw2f1resize_w450_nl.jpg" alt="Sage"></div>
+      <div class="mosaic-img"><img src="id-11134207-7rasj-m27amvk5c3n802resize_w450_nl.jpg" alt="Lilac"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section class="colors-section" id="colors">
+  <div class="section-header">
+    <p class="section-tag">Pilihan Warna</p>
+    <h2 class="section-title">16 Warna <em style="font-style:italic;color:var(--rose)">Cantik</em></h2>
+  </div>
+
+  <div class="color-grid" id="colorGrid"></div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-header">
+    <p class="section-tag">Harga Spesial</p>
+    <h2 class="section-title" style="color:var(--white)">Pilih Paket <em style="color:var(--rose);font-style:italic">Kamu</em></h2>
+    <p style="font-size:14px;color:var(--light);margin-top:12px">Harga belum termasuk ongkos kirim</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-label">Satuan</div>
+      <div class="price-qty">1<span>pcs</span></div>
+      <div class="price-amount">Rp 33.000</div>
+      <div class="price-note">per helai</div>
+      <div class="price-savings">—</div>
+    </div>
+    <div class="price-card featured">
+      <div class="popular-badge">✦ Paling Laris</div>
+      <div class="price-label">Bundling 3</div>
+      <div class="price-qty">3<span>pcs</span></div>
+      <div class="price-amount">Rp 89.000</div>
+      <div class="price-note">~Rp 29.667/pcs</div>
+      <div class="price-savings">Hemat Rp 10.000</div>
+    </div>
+    <div class="price-card">
+      <div class="price-label">Bundling 5</div>
+      <div class="price-qty">5<span>pcs</span></div>
+      <div class="price-amount">Rp 139.000</div>
+      <div class="price-note">~Rp 27.800/pcs</div>
+      <div class="price-savings">Hemat Rp 26.000</div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order-section" id="order">
+  <div class="section-header">
+    <p class="section-tag">Form Pemesanan</p>
+    <h2 class="section-title">Pesan <em style="font-style:italic;color:var(--rose)">Sekarang</em></h2>
+  </div>
+
+  <div class="order-form">
+    <!-- Customer info -->
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input type="text" id="custName" placeholder="Nama penerima" required>
+      </div>
+      <div class="form-group">
+        <label>No. WhatsApp</label>
+        <input type="tel" id="custPhone" placeholder="08xx-xxxx-xxxx" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Alamat Lengkap</label>
+      <textarea id="custAddress" rows="3" placeholder="Jalan, No. Rumah, RT/RW, Kelurahan..." style="resize:none"></textarea>
+    </div>
+
+    <!-- Paket -->
+    <div class="form-group">
+      <label>Pilih Paket</label>
+      <div class="package-picker" id="packagePicker">
+        <label class="pkg-option">
+          <input type="radio" name="package" value="1" data-price="33000" data-qty="1">
+          <div class="pkg-box">
+            <div class="pkg-qty">1</div>
+            <div class="pkg-label">pcs · Satuan</div>
+            <div class="pkg-price">Rp 33.000</div>
+            <div class="pkg-save">&nbsp;</div>
+          </div>
+        </label>
+        <label class="pkg-option">
+          <input type="radio" name="package" value="3" data-price="89000" data-qty="3" checked>
+          <div class="pkg-box">
+            <div class="pkg-qty">3</div>
+            <div class="pkg-label">pcs · Bundling</div>
+            <div class="pkg-price">Rp 89.000</div>
+            <div class="pkg-save">Hemat Rp 10.000</div>
+          </div>
+        </label>
+        <label class="pkg-option">
+          <input type="radio" name="package" value="5" data-price="139000" data-qty="5">
+          <div class="pkg-box">
+            <div class="pkg-qty">5</div>
+            <div class="pkg-label">pcs · Bundling</div>
+            <div class="pkg-price">Rp 139.000</div>
+            <div class="pkg-save">Hemat Rp 26.000</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Color picker -->
+    <div class="form-group" id="colorPickerWrap">
+      <label>Pilih Warna <span id="colorPickerNote" style="font-size:11px;color:var(--rose)"></span></label>
+      <div class="color-picker" id="colorPicker"></div>
+      <p class="info-msg" id="colorMsg"></p>
+    </div>
+
+    <!-- Ongkir calculator -->
+    <div class="ongkir-box">
+      <div class="ongkir-title">🚚 Hitung Ongkos Kirim (JNE)</div>
+      <div class="ongkir-inputs">
+        <div class="form-group" style="margin-bottom:0">
+          <label>Kota / Kabupaten Tujuan</label>
+          <input type="text" id="destCity" placeholder="Cth: Bandung, Surabaya..." oninput="suggestCity(this.value)">
+          <div id="citySuggestions" style="background:var(--white);border:1px solid var(--sand);border-radius:10px;margin-top:4px;display:none;max-height:180px;overflow-y:auto;"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label>Berat Paket (gram)</label>
+          <input type="number" id="weightInput" value="300" min="100" step="50" readonly style="background:var(--sand);color:var(--mid)">
+        </div>
+      </div>
+      <button class="calc-btn" onclick="calcOngkir()">Cek Ongkir</button>
+      <p class="info-msg show" style="font-size:11px;color:var(--light);margin-top:8px">Pengiriman dari Jakarta Barat. Berat dihitung otomatis sesuai paket.</p>
+
+      <div class="ongkir-result" id="ongkirResult">
+        <div style="font-size:12px;color:var(--mid);margin-bottom:10px;font-weight:500">Pilih layanan JNE:</div>
+        <div class="ongkir-services" id="serviceList"></div>
+      </div>
+      <p class="info-msg error" id="ongkirError"></p>
+    </div>
+
+    <!-- Summary -->
+    <div class="order-summary" id="orderSummary">
+      <div class="summary-row"><span>Harga Barang</span><span id="sumBarang">—</span></div>
+      <div class="summary-row"><span>Ongkos Kirim (<span id="sumService">—</span>)</span><span id="sumOngkir">—</span></div>
+      <div class="summary-row total"><span>Total Bayar</span><span id="sumTotal">—</span></div>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" onclick="submitOrder()" disabled>
+      Lanjut ke Pembayaran →
+    </button>
+
+    <div class="payment-note">
+      💳 Informasi pembayaran (transfer bank / e-wallet) akan dikirimkan via WhatsApp setelah pemesanan dikonfirmasi.
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-icon">✨</div>
+    <div class="modal-title">Pesanan Diterima!</div>
+    <div class="modal-body">Terima kasih sudah memesan <strong>Varisha Hijab</strong>. Catat nomor pesananmu ya:</div>
+    <div class="modal-order-id" id="modalOrderId">#VRS-000000</div>
+    <div class="modal-body">Pilihan pembayaran akan kami kirimkan ke WhatsApp kamu:</div>
+    <div class="payment-options">
+      <div class="payment-option"><span class="payment-icon">🏦</span><div><strong>Transfer Bank</strong><br><span style="font-size:12px;color:var(--light)">BCA / BRI / Mandiri / BNI</span></div></div>
+      <div class="payment-option"><span class="payment-icon">💚</span><div><strong>GoPay / OVO / DANA</strong><br><span style="font-size:12px;color:var(--light)">E-wallet tersedia</span></div></div>
+      <div class="payment-option"><span class="payment-icon">📦</span><div><strong>COD</strong><br><span style="font-size:12px;color:var(--light)">Bayar saat barang tiba (area tertentu)</span></div></div>
+    </div>
+    <button class="modal-close" onclick="closeModal()">Oke, Siap!</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Varisha Hijab</div>
+  <p>Jilbab Segi Empat Paris 115×115 cm · Anti Letoy · Anti Kusut<br>
+  Pengiriman via JNE dari Jakarta Barat</p>
+</footer>
+
+<script>
+// ── Data ──────────────────────────────────────────
+const COLORS = [
+  { name:'Olive', hex:'#8B8B4B', file:'id-11134207-7rasc-m569hn4h75qr98resize_w450_nl.jpg' },
+  { name:'Abu-abu', hex:'#A9A9A9', file:'id-11134207-7rasd-m27av99rtf1e2aresize_w450_nl.jpg' },
+  { name:'Maroon Tua', hex:'#5C1A2E', file:'id-11134207-7rasd-m569hn4h8kb74dresize_w450_nl.jpg' },
+  { name:'Cream', hex:'#D4B896', file:'id-11134207-7rasi-m2rircyuqhde01resize_w450_nl.jpg' },
+  { name:'Sage Green', hex:'#78896A', file:'id-11134207-7rasj-m27ag05jkuw2f1resize_w450_nl.jpg' },
+  { name:'Lilac', hex:'#9B6BA0', file:'id-11134207-7rasj-m27amvk5c3n802resize_w450_nl.jpg' },
+  { name:'Greige', hex:'#B0A090', file:'id-11134207-7rasl-m569hn4h9yvna1resize_w450_nl.jpg' },
+  { name:'Sand', hex:'#C9B08A', file:'id-11134207-7rasm-m27ag05jqh5u73resize_w450_nl.jpg' },
+  { name:'Dusty Pink', hex:'#C9A4A8', file:'id-11134207-7r98t-lt8fy87d8wnd1fresize_w450_nl.jpg' },
+  { name:'Baby Pink', hex:'#E8B4BC', file:'id-11134207-7r98t-lt8gagrii3on18resize_w450_nl.jpg' },
+  { name:'Terracotta', hex:'#C1612A', file:'id-11134207-7r98v-lt8g3vuj8mxz5bresize_w450_nl.jpg' },
+  { name:'Baby Blue', hex:'#A8C8E0', file:'id-11134207-7r98v-lt8g6o8i7t6hdcresize_w450_nl.jpg' },
+  { name:'Teal Blue', hex:'#7AACB8', file:'id-11134207-7r98w-lt8g6o8i97qx4bresize_w450_nl.jpg' },
+  { name:'Navy', hex:'#2A3A50', file:'id-11134207-7r98w-lt8gagri5gkn26resize_w450_nl.jpg' },
+  { name:'Maroon', hex:'#8B1A2E', file:'id-11134207-7r990-lt8gagri6v5381resize_w450_nl.jpg' },
+  { name:'Hitam', hex:'#1A1A1A', file:'id-11134207-7rasb-m280wjsnpvg47aresize_w450_nl.jpg' },
+];
+
+const PACKAGES = { 1:{price:33000,weight:250}, 3:{price:89000,weight:700}, 5:{price:139000,weight:1150} };
+
+// JNE rates (per 1000g, approximate) from Jakarta Barat to various zones
+// We'll use rajaongkir-style estimation
+const JNE_ZONES = {
+  // Zone 1: Jakarta & sekitar
+  'JAKARTA': 1, 'TANGERANG': 1, 'BEKASI': 1, 'DEPOK': 1, 'BOGOR': 1,
+  // Zone 2: Jawa
+  'BANDUNG': 2, 'CIREBON': 2, 'SEMARANG': 2, 'YOGYAKARTA': 2, 'SOLO': 2,
+  'SURABAYA': 2, 'MALANG': 2, 'BANYUWANGI': 2, 'MAGELANG': 2, 'PURWOKERTO': 2,
+  'TASIKMALAYA': 2, 'GARUT': 2, 'SUKABUMI': 2, 'SERANG': 2, 'CILEGON': 2,
+  'PEKALONGAN': 2, 'TEGAL': 2, 'KEDIRI': 2, 'MADIUN': 2, 'JEMBER': 2,
+  'SIDOARJO': 2, 'GRESIK': 2, 'MOJOKERTO': 2,
+  // Zone 3: Sumatera
+  'MEDAN': 3, 'PALEMBANG': 3, 'PEKANBARU': 3, 'PADANG': 3, 'JAMBI': 3,
+  'BENGKULU': 3, 'BANDAR LAMPUNG': 3, 'BATAM': 3, 'PONTIANAK': 3,
+  'BANDA ACEH': 3,
+  // Zone 4: Kalimantan, Sulawesi, Bali, NTB
+  'BALI': 4, 'DENPASAR': 4, 'MATARAM': 4, 'BALIKPAPAN': 4, 'SAMARINDA': 4,
+  'BANJARMASIN': 4, 'MAKASSAR': 4, 'MANADO': 4, 'KUPANG': 4, 'PALANGKARAYA': 4,
+  'KENDARI': 4, 'PALU': 4,
+  // Zone 5: Papua, Maluku, NTT
+  'JAYAPURA': 5, 'AMBON': 5, 'TERNATE': 5, 'SORONG': 5, 'MANOKWARI': 5,
+  'MERAUKE': 5,
+};
+
+const ZONE_RATES = {
+  // zone: { REG:[base,per500g], YES:[base,per500g], OKE:[base,per500g] }
+  1: { REG:[12000,4000], YES:[15000,5000], OKE:[9000,3000] },
+  2: { REG:[14000,5000], YES:[18000,6000], OKE:[11000,4000] },
+  3: { REG:[18000,6000], YES:[25000,8000], OKE:[14000,5000] },
+  4: { REG:[22000,7000], YES:[32000,10000], OKE:[17000,6000] },
+  5: { REG:[30000,10000], YES:[50000,15000], OKE:[22000,8000] },
+};
+
+const SERVICE_NAMES = {
+  REG: { label:'JNE REG', etd:'2–4 hari' },
+  YES: { label:'JNE YES', etd:'1 hari (Hari Berikutnya)' },
+  OKE: { label:'JNE OKE', etd:'3–5 hari' },
+};
+
+// City list for autocomplete
+const CITIES = Object.keys(JNE_ZONES).map(c => c.charAt(0)+c.slice(1).toLowerCase());
+
+let selectedOngkir = 0;
+let selectedServiceName = '';
+
+// ── Render colors in gallery ──────────────────────
+function renderColorGrid() {
+  const grid = document.getElementById('colorGrid');
+  grid.innerHTML = COLORS.map(c => `
+    <div class="color-card">
+      <img src="${c.file}" alt="${c.name}" loading="lazy">
+      <div class="color-info">
+        <span class="color-name">${c.name}</span>
+        <span class="color-dot" style="background:${c.hex}"></span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── Render color picker in form ───────────────────
+function renderColorPicker(qty) {
+  const picker = document.getElementById('colorPicker');
+  const note = document.getElementById('colorPickerNote');
+  note.textContent = qty > 1 ? `(pilih ${qty} warna, boleh sama)` : '';
+
+  picker.innerHTML = COLORS.map((c, i) => `
+    <label class="color-option">
+      <input type="checkbox" name="color" value="${c.name}" onchange="validateColors()">
+      <div class="thumb">
+        <img src="${c.file}" alt="${c.name}" loading="lazy">
+        <div class="thumb-name">${c.name}</div>
+      </div>
+    </label>
+  `).join('');
+}
+
+function validateColors() {
+  const pkg = getSelectedPackage();
+  const checked = document.querySelectorAll('#colorPicker input[type=checkbox]:checked');
+  const msg = document.getElementById('colorMsg');
+  if (checked.length > pkg.qty) {
+    checked[checked.length-1].checked = false;
+    msg.textContent = `Maksimal ${pkg.qty} warna untuk paket ini.`;
+    msg.className = 'info-msg show error';
+  } else {
+    msg.className = 'info-msg';
+  }
+  updateSummary();
+}
+
+// ── Package logic ─────────────────────────────────
+function getSelectedPackage() {
+  const radio = document.querySelector('input[name=package]:checked');
+  if (!radio) return { value:'3', price:89000, qty:3 };
+  return { value:radio.value, price:parseInt(radio.dataset.price), qty:parseInt(radio.dataset.qty) };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderColorGrid();
+  renderColorPicker(3);
+  document.querySelectorAll('input[name=package]').forEach(r => {
+    r.addEventListener('change', () => {
+      const pkg = getSelectedPackage();
+      document.getElementById('weightInput').value = PACKAGES[pkg.qty].weight;
+      // reset color picks
+      document.querySelectorAll('#colorPicker input').forEach(cb => cb.checked = false);
+      renderColorPicker(pkg.qty);
+      resetOngkir();
+      updateSummary();
+    });
+  });
+});
+
+// ── City autocomplete ─────────────────────────────
+function suggestCity(val) {
+  const box = document.getElementById('citySuggestions');
+  if (!val || val.length < 2) { box.style.display='none'; return; }
+  const matches = CITIES.filter(c => c.toLowerCase().includes(val.toLowerCase())).slice(0,8);
+  if (!matches.length) { box.style.display='none'; return; }
+  box.innerHTML = matches.map(c => `<div onclick="selectCity('${c}')" style="padding:10px 14px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--sand);" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background=''"> ${c}</div>`).join('');
+  box.style.display='block';
+}
+
+function selectCity(city) {
+  document.getElementById('destCity').value = city;
+  document.getElementById('citySuggestions').style.display='none';
+  resetOngkir();
+}
+
+// ── Ongkir calculation ────────────────────────────
+function resetOngkir() {
+  selectedOngkir = 0;
+  selectedServiceName = '';
+  document.getElementById('ongkirResult').classList.remove('show');
+  document.getElementById('ongkirError').classList.remove('show');
+  updateSummary();
+}
+
+function calcOngkir() {
+  const city = document.getElementById('destCity').value.trim().toUpperCase();
+  const weight = parseInt(document.getElementById('weightInput').value) || 300;
+  const errEl = document.getElementById('ongkirError');
+
+  if (!city) {
+    errEl.textContent = 'Masukkan kota tujuan terlebih dahulu.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  // Find zone
+  let zone = null;
+  for (const key of Object.keys(JNE_ZONES)) {
+    if (city.includes(key) || key.includes(city)) { zone = JNE_ZONES[key]; break; }
+  }
+
+  if (!zone) {
+    errEl.textContent = 'Kota tidak ditemukan. Coba nama kota lain atau kota terdekat.';
+    errEl.classList.add('show');
+    document.getElementById('ongkirResult').classList.remove('show');
+    return;
+  }
+
+  errEl.classList.remove('show');
+
+  const rates = ZONE_RATES[zone];
+  const weightKg = weight / 1000;
+  const extra500 = Math.max(0, Math.ceil((weight - 500) / 500));
+
+  const services = Object.keys(rates).map(svc => {
+    const [base, per500] = rates[svc];
+    const cost = base + (extra500 * per500);
+    return { svc, cost, ...SERVICE_NAMES[svc] };
+  });
+
+  const list = document.getElementById('serviceList');
+  list.innerHTML = services.map(s => `
+    <div class="ongkir-service" onclick="selectService('${s.svc}', ${s.cost}, '${s.label}', this)">
+      <div>
+        <div class="ongkir-service-name">${s.label}</div>
+        <div class="ongkir-service-etd">${s.etd}</div>
+      </div>
+      <div class="ongkir-service-price">${formatRp(s.cost)}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('ongkirResult').classList.add('show');
+}
+
+function selectService(svc, cost, label, el) {
+  document.querySelectorAll('.ongkir-service').forEach(e => e.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedOngkir = cost;
+  selectedServiceName = label;
+  updateSummary();
+}
+
+// ── Summary ───────────────────────────────────────
+function updateSummary() {
+  const pkg = getSelectedPackage();
+  const checkedColors = document.querySelectorAll('#colorPicker input:checked').length;
+  const hasColors = checkedColors > 0 && checkedColors <= pkg.qty;
+  const hasOngkir = selectedOngkir > 0;
+
+  const sumEl = document.getElementById('orderSummary');
+  const btn = document.getElementById('submitBtn');
+
+  if (hasOngkir) {
+    const total = pkg.price + selectedOngkir;
+    document.getElementById('sumBarang').textContent = formatRp(pkg.price);
+    document.getElementById('sumService').textContent = selectedServiceName;
+    document.getElementById('sumOngkir').textContent = formatRp(selectedOngkir);
+    document.getElementById('sumTotal').textContent = formatRp(total);
+    sumEl.classList.add('show');
+  } else {
+    sumEl.classList.remove('show');
+  }
+
+  const name = document.getElementById('custName')?.value.trim();
+  const phone = document.getElementById('custPhone')?.value.trim();
+  btn.disabled = !(hasOngkir && hasColors && name && phone);
+}
+
+// Listen to name/phone changes
+document.addEventListener('DOMContentLoaded', () => {
+  ['custName','custPhone'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', updateSummary);
+  });
+});
+
+// ── Config — ganti URL ini setelah deploy Railway ──
+const SERVER_URL = 'https://GANTI-URL-RAILWAY-KAMU.railway.app';
+
+// ── Order submission ──────────────────────────────
+async function submitOrder() {
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML = '<span class="spinner"></span> Memproses...';
+  btn.disabled = true;
+
+  const pkg = getSelectedPackage();
+  const checkedColors = [...document.querySelectorAll('#colorPicker input:checked')].map(cb => cb.value);
+  const orderId = 'VRS-' + Math.floor(100000 + Math.random() * 900000);
+
+  const orderData = {
+    orderId,
+    nama: document.getElementById('custName').value.trim(),
+    whatsapp: document.getElementById('custPhone').value.trim(),
+    alamat: document.getElementById('custAddress').value.trim(),
+    kota: document.getElementById('destCity').value.trim(),
+    paketQty: pkg.qty,
+    warna: checkedColors,
+    jneService: selectedServiceName,
+    hargaBarang: pkg.price,
+    ongkir: selectedOngkir,
+    total: pkg.price + selectedOngkir,
+  };
+
+  try {
+    const res = await fetch(`${SERVER_URL}/api/order`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData),
+    });
+
+    if (!res.ok) throw new Error('Server error');
+
+    document.getElementById('modalOrderId').textContent = '#' + orderId;
+    document.getElementById('modalOverlay').classList.add('show');
+  } catch (err) {
+    alert('Gagal mengirim pesanan. Coba lagi atau hubungi kami via WhatsApp.');
+    console.error(err);
+  } finally {
+    btn.innerHTML = 'Lanjut ke Pembayaran →';
+    btn.disabled = false;
+  }
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('show');
+}
+
+// ── Helpers ───────────────────────────────────────
+function formatRp(n) {
+  return 'Rp ' + n.toLocaleString('id-ID');
+}
+
+// Update weight on load
+document.addEventListener('DOMContentLoaded', () => {
+  const defaultPkg = getSelectedPackage();
+  document.getElementById('weightInput').value = PACKAGES[defaultPkg.qty]?.weight || 300;
+});
+</script>
+</body>
+</html>
