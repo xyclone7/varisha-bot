@@ -16,7 +16,7 @@ app.use(express.json());
 // ── Config ────────────────────────────────────────
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // PERBAIKAN: Menyimpan file excel di dalam folder aplikasi agar aman dari permission error
 const EXCEL_PATH = path.resolve(process.cwd(), 'orders.xlsx');
