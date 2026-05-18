@@ -6,14 +6,20 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
+
+// Mengizinkan akses CORS dari Netlify kamu
+app.use(cors({
+  origin: 'https://varishahijab.netlify.app'
+}));
 app.use(express.json());
 
 // ── Config ────────────────────────────────────────
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const PORT = process.env.PORT || 3000;
-const EXCEL_PATH = path.join(__dirname, '..', 'orders.xlsx');
+
+// PERBAIKAN: Menyimpan file excel di dalam folder aplikasi agar aman dari permission error
+const EXCEL_PATH = path.join(__dirname, 'orders.xlsx');
 
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: false });
 
@@ -43,11 +49,9 @@ async function getOrCreateWorkbook() {
     return workbook;
   }
 
-  // Buat file baru dengan header & styling
   const sheet = workbook.addWorksheet('Pesanan');
   sheet.columns = HEADERS;
 
-  // Style header row
   const headerRow = sheet.getRow(1);
   headerRow.eachCell(cell => {
     cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFC8826E' } };
@@ -72,7 +76,7 @@ async function appendOrder(orderData) {
 
   const lastRow = sheet.lastRow?.number || 1;
   const rowNumber = lastRow + 1;
-  const no = lastRow; // row 1 = header, jadi no urut = lastRow
+  const no = lastRow;
 
   const newRow = sheet.addRow({
     no,
@@ -91,7 +95,6 @@ async function appendOrder(orderData) {
     status: 'Menunggu Pembayaran',
   });
 
-  // Style data rows — zebra striping
   const isEven = (rowNumber % 2 === 0);
   newRow.eachCell(cell => {
     cell.fill = {
@@ -107,14 +110,12 @@ async function appendOrder(orderData) {
     cell.alignment = { vertical: 'middle', wrapText: true };
   });
 
-  // Format currency cells
   ['hargaBarang', 'ongkir', 'total'].forEach(key => {
     const col = HEADERS.findIndex(h => h.key === key) + 1;
     const cell = newRow.getCell(col);
     cell.numFmt = '"Rp "#,##0';
   });
 
-  // Status cell color
   const statusCol = HEADERS.findIndex(h => h.key === 'status') + 1;
   newRow.getCell(statusCol).fill = {
     type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF3CD' },
@@ -159,23 +160,25 @@ async function sendTelegramNotif(orderData, rowNo) {
   });
 }
 
-// ── Bot Commands ──────────────────────────────────
-bot.on('polling_error', () => {}); // silent polling errors (kita pakai webhook mode nanti)
+// ── Bot Commands (Hanya Aktif Jika Token & Chat ID Valid) ──
+bot.on('polling_error', (error) => console.log('Polling error:', error.message));
 
-// Handle callback download excel
 bot.on('callback_query', async (query) => {
   if (query.data === 'download_excel') {
     if (!fs.existsSync(EXCEL_PATH)) {
       return bot.answerCallbackQuery(query.id, { text: 'Belum ada pesanan.' });
     }
-    await bot.sendDocument(query.message.chat.id, EXCEL_PATH, {
-      caption: `📊 Data pesanan Varisha Hijab — ${new Date().toLocaleDateString('id-ID')}`,
-    });
-    bot.answerCallbackQuery(query.id);
+    try {
+      await bot.sendDocument(query.message.chat.id, EXCEL_PATH, {
+        caption: `📊 Data pesanan Varisha Hijab — ${new Date().toLocaleDateString('id-ID')}`,
+      });
+      bot.answerCallbackQuery(query.id);
+    } catch (e) {
+      console.error('Gagal mengirim dokumen via callback:', e.message);
+    }
   }
 });
 
-// /download command
 bot.onText(/\/download/, async (msg) => {
   if (String(msg.chat.id) !== String(TELEGRAM_CHAT_ID)) return;
   if (!fs.existsSync(EXCEL_PATH)) {
@@ -186,7 +189,6 @@ bot.onText(/\/download/, async (msg) => {
   });
 });
 
-// /status command
 bot.onText(/\/status/, async (msg) => {
   if (String(msg.chat.id) !== String(TELEGRAM_CHAT_ID)) return;
   if (!fs.existsSync(EXCEL_PATH)) {
@@ -198,7 +200,6 @@ bot.onText(/\/status/, async (msg) => {
   bot.sendMessage(msg.chat.id, `📊 Total pesanan masuk: *${total}* order\nKetik /download untuk ambil file Excel.`, { parse_mode: 'Markdown' });
 });
 
-// /start command
 bot.onText(/\/start/, (msg) => {
   if (String(msg.chat.id) !== String(TELEGRAM_CHAT_ID)) return;
   bot.sendMessage(msg.chat.id,
@@ -207,10 +208,12 @@ bot.onText(/\/start/, (msg) => {
   );
 });
 
-// Start polling
-if (TELEGRAM_TOKEN) {
+// Jalankan polling secara aman
+if (TELEGRAM_TOKEN && TELEGRAM_CHAT_ID) {
   bot.startPolling();
   console.log('🤖 Telegram bot polling aktif');
+} else {
+  console.log('⚠️ Peringatan: TELEGRAM_TOKEN atau TELEGRAM_CHAT_ID belum diatur di Environment Variables.');
 }
 
 // ── API Endpoint ──────────────────────────────────
@@ -218,21 +221,22 @@ app.post('/api/order', async (req, res) => {
   try {
     const data = req.body;
 
-    // Validasi
     if (!data.nama || !data.whatsapp || !data.orderId) {
       return res.status(400).json({ error: 'Data tidak lengkap' });
     }
 
-    // Simpan ke Excel
+    // 1. Simpan ke Excel
     const rowNo = await appendOrder(data);
 
-    // Kirim notif Telegram
-    await sendTelegramNotif(data, rowNo);
+    // 2. Kirim notif Telegram
+    if (TELEGRAM_TOKEN && TELEGRAM_CHAT_ID) {
+      await sendTelegramNotif(data, rowNo);
+    }
 
     res.json({ success: true, orderId: data.orderId });
   } catch (err) {
-    console.error('Error:', err);
-    res.status(500).json({ error: 'Server error' });
+    console.error('Error pada /api/order:', err);
+    res.status(500).json({ error: 'Server error: ' + err.message });
   }
 });
 
