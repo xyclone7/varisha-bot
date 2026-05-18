@@ -19,7 +19,7 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const PORT = process.env.PORT || 3000;
 
 // PERBAIKAN: Menyimpan file excel di dalam folder aplikasi agar aman dari permission error
-const EXCEL_PATH = path.join(__dirname, 'orders.xlsx');
+const EXCEL_PATH = path.resolve(process.cwd(), 'orders.xlsx');
 
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: false });
 
